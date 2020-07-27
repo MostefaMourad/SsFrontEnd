@@ -40,7 +40,7 @@
 <script>
 import SearchComponent from '~/components/SearchComponent.vue'
 import ConnectComponent from '@/components/ConnectComponent.vue'
-import AideComponent from '@/components/AideComponent.vue';
+import AideComponent from '@/components/AideComponent.vue'
     export default {
         components: {
             SearchComponent,

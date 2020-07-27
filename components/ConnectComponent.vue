@@ -63,6 +63,10 @@
                 auth: true,
             }
         },
+        props: {
+          on:null,
+          attrs:null,
+        },
     }
 </script>
 

@@ -1,0 +1,11 @@
+group > chips (choices large w gae)
+casourel publicité
+Hover(Produit)
+lists(menu tae les categories)
+Overlay(pour avoir le détail d'un Produit)
+Pagination( to show products of a categorie per page )
+Color picker( mey be to pick product of a color)
+ratings (mey be to rate a product)
+Skeleton(advanced Optionnal as well)
+badges(lel panier optional)
+Footer(for the foter shit)
