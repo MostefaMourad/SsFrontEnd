@@ -72,7 +72,20 @@
               <v-row>
                   <v-row v-for="n in 4" :key="n">
                     <v-col v-for="i in 5" :key="i">
-                       <product-component> </product-component>
+                       <product-component
+                            class="ma-2"
+                            @click="toggle"
+                            v-on:open="dialog=true"
+                            >
+                            <v-row
+                                class="fill-width"
+                                align="center"
+                                justify="center"
+                                >
+                                <v-scale-transition>
+                                </v-scale-transition>
+                            </v-row>
+                        </product-component>
                     </v-col> 
                   </v-row>
               </v-row>
@@ -85,7 +98,7 @@
                     ></v-pagination>                 
                   </v-col>
               </v-row>
-                      <!-------------------  Pop détails de Produit ----------->
+                <!-------------------  Pop détails de Produit ----------->
                 <v-row justify="center">
                     <v-dialog v-model="dialog" persistent max-width="80%">
                         <template>
