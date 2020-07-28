@@ -19,7 +19,7 @@
           align="center"
           justify="center"
         >
-          <div class="display-3">{{ slide }} Slide</div>
+          <div class="display-3">{{ slide }} Publicité </div>
         </v-row>
       </v-sheet>
     </v-carousel-item>
@@ -37,11 +37,11 @@
                 'deep-purple accent-4',
                 ],
                 slides: [
-                'First',
-                'Second',
-                'Third',
-                'Fourth',
-                'Fifth',
+                'Premiére',
+                'Seconde',
+                'Troisième',
+                'Quatrième',
+                'Cinquième',
                 ],
                 windowSize:700,
             }

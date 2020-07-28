@@ -37,11 +37,6 @@
         <!--- Publicité  -->
         <add-component :height="200"></add-component>
       </v-row>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <v-row align="center">
-          <!--- Footer  -->
-          <footer-component> </footer-component> 
-      </v-row>
   </v-container>
 </template>
 

@@ -4,6 +4,8 @@
     <v-main >
         <nuxt />
     </v-main>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <footer-component> </footer-component> 
   </v-app>
 </template>
 
