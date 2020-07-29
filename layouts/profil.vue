@@ -18,7 +18,8 @@
                         <v-list-item
                             v-for="item in items"
                             :key="item.title"
-                            link
+                            :to="item.link"
+                            color="primary"
                         >
                             <v-list-item-icon>
                             <v-icon>{{ item.icon }}</v-icon>
@@ -50,10 +51,10 @@
         data() {
             return {
                 items: [
-                { title: 'Informations Personnelles', icon: 'mdi-account' },
-                { title: 'Adresses', icon: 'mdi-map-marker-radius' },
-                { title: 'Modifier votre Mot de passe', icon: 'mdi-account-key' },
-                { title: 'Vos commandes', icon: 'mdi-package' },
+                { title: 'Informations Personnelles', icon: 'mdi-account' ,link:'/client/profil/infos'},
+                { title: 'Adresses', icon: 'mdi-map-marker-radius' ,link:'/client/profil/adresse'},
+                { title: 'Modifier votre Mot de passe', icon: 'mdi-account-key' ,link:'/client/profil/mdp'},
+                { title: 'Vos commandes', icon: 'mdi-package' ,link:'/client/profil/commandes'},
                 ],
             }
         },

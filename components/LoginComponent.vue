@@ -62,7 +62,7 @@
               <v-card-actions>
                   <v-row>
                       <v-col align="center">
-                          <v-btn color="primary" width="90%" >S'identifier</v-btn>
+                          <v-btn color="primary" width="90%" @click="$router.push('/')" >S'identifier</v-btn>
                       </v-col>
                   </v-row>
               </v-card-actions>

@@ -56,10 +56,10 @@
                  </v-row>
              </v-col>
              <v-col md="3">
-                <v-btn color="white primary--text">POURSUIVRE VOS ACHATS</v-btn> 
+                <v-btn color="white primary--text" @click="$router.push('/')">POURSUIVRE VOS ACHATS</v-btn> 
              </v-col>
              <v-col md="3" align="right">
-                <v-btn color="primary">FINALISER VOTRE COMMANDE</v-btn>
+                <v-btn color="primary" @click="$router.push('/client/commande/finaliser')">FINALISER VOTRE COMMANDE</v-btn>
              </v-col>
          </v-row>
          </v-container>

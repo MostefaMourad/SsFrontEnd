@@ -5,12 +5,16 @@ export default {
   ** Nuxt rendering mode
   ** See https://nuxtjs.org/api/configuration-mode
   */
-  mode: 'universal',
+  mode: 'spa',
   /*
   ** Nuxt target
   ** See https://nuxtjs.org/api/configuration-target
   */
   target: 'server',
+  /*target: 'static',*/
+  router: {
+    base: '/SsFrontEnd/'
+  },
   /*
   ** Headers of the page
   ** See https://nuxtjs.org/api/configuration-head
@@ -53,7 +57,9 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    
   ],
+  
   /*
   ** vuetify module configuration
   ** https://github.com/nuxt-community/vuetify-module
@@ -83,6 +89,5 @@ export default {
   ** Build configuration
   ** See https://nuxtjs.org/api/configuration-build/
   */
-  build: {
-  }
+  
 }

@@ -27,7 +27,7 @@
         <v-list-item
           v-for="subItem in item.items"
           :key="subItem.title"
-          @click=""
+          @click="$router.push('/categorie')"
         >
           <v-list-item-content>
             <v-list-item-title v-text="subItem.title"></v-list-item-title>

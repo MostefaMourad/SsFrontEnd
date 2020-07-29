@@ -26,7 +26,7 @@
             </v-row>
         <v-row class="bread">
             <!-------- Bread Crumbs -->
-            <v-breadcrumbs :items="items">
+            <v-breadcrumbs :items="items" >
                 <template v-slot:divider>
                     <v-icon>mdi-chevron-right</v-icon>
                 </template>
@@ -53,17 +53,17 @@ import ProduitsComponent from '@/components/ProduitsComponent.vue';
                 {
                     text: 'Accueil',
                     disabled: false,
-                    href: 'breadcrumbs_dashboard',
+                    href: '/',
                 },
                 {
                     text: 'Informatique',
                     disabled: false,
-                    href: 'breadcrumbs_link_1',
+                    href: '/categorie',
                 },
                 {
                     text: 'Imprimentes et scanners',
                     disabled: true,
-                    href: 'breadcrumbs_link_2',
+                    href: '',
                 },
                 ],
             }

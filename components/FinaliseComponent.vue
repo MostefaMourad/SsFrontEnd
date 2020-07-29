@@ -299,7 +299,7 @@
                             <v-col align="center">
                                 <v-btn
                                     color="primary"
-                                    @click="dialog = false"
+                                    @click="voir"
                                     width="80%"
                                 >
                                     VOIR VOS COMMANDES
@@ -329,6 +329,12 @@
                items: ['Alger', 'Chlef', 'Blida', 'Jijel'],
                villes: ['Alger Centre', 'Ben Aknoun', 'Stawali', 'Herrache'],
             }
+            },
+            methods: {
+                voir() {
+                    this.dialog=false;
+                    this.$router.push('/client/profil/commandes');
+                }
             },
     }
 </script>

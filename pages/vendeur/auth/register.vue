@@ -130,7 +130,7 @@
         <v-card-actions>
           <v-row>
                 <v-col align="center">
-                    <v-btn color="primary" width="90%" >Créer un Compte </v-btn>
+                    <v-btn color="primary" width="90%" @click="$router.push('/vendeur/profil')">Créer un Compte </v-btn>
                 </v-col>
           </v-row>
         </v-card-actions>
@@ -140,7 +140,7 @@
             <h3 class="font-weight-light grey--text title mb-2">
                 Vous possédez déjà un compte ?
             </h3>
-            <v-btn text color="primary"> CONNECTEZ-VOUS </v-btn> 
+            <v-btn text color="primary" @click="$router.push('/vendeur/auth/login')" > CONNECTEZ-VOUS </v-btn> 
         </v-col>
     </v-row> 
     </v-col>

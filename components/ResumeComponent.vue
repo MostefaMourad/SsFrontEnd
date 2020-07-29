@@ -86,6 +86,7 @@
                 <v-btn
                     text
                     color="primary"
+                    @click="$router.push('/client/panier')"
                     >
                     RETOUR AU PANIER
                 </v-btn>

@@ -25,6 +25,7 @@
               <v-btn
                 v-bind="attrs"
                 v-on="on"
+                @click="$router.push('/client/panier')"
                 dark
               >
                 <v-icon left >mdi-cart-outline</v-icon>

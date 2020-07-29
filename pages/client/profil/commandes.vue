@@ -33,7 +33,7 @@
                                     </h3>
                                 </v-col>
                                 <v-col md="4" align="right">
-                                <v-btn text color="primary" >
+                                <v-btn text color="primary" @click="$router.push('/client/profil/commande/1')">
                                     <v-icon left>
                                       mdi-clipboard-text
                                     </v-icon>

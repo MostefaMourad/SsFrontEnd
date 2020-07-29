@@ -21,7 +21,7 @@
                         <h3 class="font-weight-light grey--text title mb-2">
                             Vous possédez déjà un compte ?
                         </h3>
-                        <v-btn text color="primary"> CONNECTEZ-VOUS </v-btn> 
+                        <v-btn text color="primary" @click="$router.push('/client/auth/login')"> CONNECTEZ-VOUS </v-btn> 
                     </v-col>
                 </v-row>
             </v-col>

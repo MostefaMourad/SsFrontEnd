@@ -16,7 +16,7 @@
                     Créez votre compte client Sos Shop en quelques clics ! Vous pouvez vous inscrire en utilisant votre adresse e-mail.
                 </h3>
                 <br><br><br><br>
-                <v-btn color="primary" width="90%" >Créer Votre Compte </v-btn>
+                <v-btn color="primary" width="90%" @click="$router.push('/client/auth/register')" >Créer Votre Compte </v-btn>
             </v-col>
         </v-row>
     </v-container>

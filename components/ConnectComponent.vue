@@ -19,27 +19,27 @@
             <v-row v-show="auth">
             <v-list-item
             >
-              <v-btn color="primary" width="100%"> Se Connecter </v-btn>
+              <v-btn @click="$router.push('/client/auth/login')" color="primary" width="100%"> Se Connecter </v-btn>
             </v-list-item>
             </v-row>
             <v-divider></v-divider>
             <v-row v-show="auth">
             <v-list-item
             >
-              <v-btn text color="primary"> créer un compte </v-btn>
+              <v-btn @click="$router.push('/client/auth/register')" text color="primary"> créer un compte </v-btn>
             </v-list-item>
             </v-row>
             <v-divider v-show="!auth"></v-divider>
             <v-row>
                 <v-list-item
-                @click=""
+                @click="$router.push('/client/profil/infos')"
                 >
                 <v-list-item-title> Votre Compte</v-list-item-title>
                 </v-list-item>
             </v-row>
             <v-row>
                 <v-list-item
-                @click=""
+                @click="$router.push('/client/profil/commandes')"
                 >
                 <v-list-item-title> Vos Commandes </v-list-item-title>
                 </v-list-item>

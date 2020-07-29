@@ -180,7 +180,7 @@
         </v-row>
         <v-row>
             <v-col align="center">
-                <v-btn color="primary">
+                <v-btn color="primary" @click="$router.push('/vendeur/auth/register')">
                     Commencer à vendre maintenant
                 </v-btn>
             </v-col>          

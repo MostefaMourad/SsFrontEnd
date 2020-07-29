@@ -4,7 +4,7 @@
         <v-card-title>
             <v-row align="center">
                 <v-col md="1">
-                    <v-btn icon large><v-icon>mdi-arrow-left</v-icon></v-btn>
+                    <v-btn icon large @click="$router.push('/client/profil/commandes')"><v-icon>mdi-arrow-left</v-icon></v-btn>
                 </v-col>
                 <v-col md="10" align="center">
                     <h2>
