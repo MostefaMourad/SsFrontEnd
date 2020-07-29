@@ -1,7 +1,7 @@
 <template>
         <v-card
             class="mx-auto"
-            outlined
+            elevation-1
         >
             <v-container>
                 <v-row align="center">
@@ -25,8 +25,6 @@
                             <v-row>
                                 <v-btn
                                 text
-                                v-bind="attrs"
-                                v-on="on"
                                 color="primary"
                                 >
                                 <v-icon left >mdi-delete</v-icon>
