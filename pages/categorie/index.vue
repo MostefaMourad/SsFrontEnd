@@ -53,17 +53,17 @@ import ProduitsComponent from '@/components/ProduitsComponent.vue';
                 {
                     text: 'Accueil',
                     disabled: false,
-                    href: '/',
+                    href: 'SsFrontEnd/',
                 },
                 {
                     text: 'Informatique',
                     disabled: false,
-                    href: '/categorie',
+                    href: 'SsFrontEnd/categorie',
                 },
                 {
                     text: 'Imprimentes et scanners',
                     disabled: true,
-                    href: '',
+                    href: 'SsFrontEnd/categorie',
                 },
                 ],
             }
