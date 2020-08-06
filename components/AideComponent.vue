@@ -31,11 +31,7 @@
             return {
                 items: [
                         { title: 'Accueil', lien:'/'},
-                        { title: 'Livraison', lien:'/aide/livraison'},
-                        { title: 'Garantie', lien:'/aide/garentie' },
-                        { title: 'Modes de paiement', lien:'/aide/paiement' },
-                        { title: 'Retour et remboursement', lien:'/aide/retour' },
-                        { title: 'Commander par téléphone', lien:'/vendeur' },
+                        { title: 'Nos Services', lien:'/aide/noservices'},
                         { title: 'Aide & FAQ', lien:'/aide/faq' },
                         { title: 'Contacter nous', lien:'/aide/contactus' },
                         { title: 'Vendez sur Sos shop', lien:'/vendeur'},
