@@ -130,7 +130,7 @@
         <v-card-actions>
           <v-row>
                 <v-col align="center">
-                    <v-btn color="primary" width="90%" @click="$router.push('/vendeur/profil')">Créer un Compte </v-btn>
+                    <v-btn color="primary" width="90%" @click="$router.push('/vendeur/espace/mesproduits')">Créer un Compte </v-btn>
                 </v-col>
           </v-row>
         </v-card-actions>
