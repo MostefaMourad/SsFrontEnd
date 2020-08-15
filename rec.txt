@@ -13,12 +13,12 @@ Footer(for the foter shit)
 
 
 
-deux numero de telephone ??? //
-deux barres + 2 lignes 
-4 lignes
-4 categories
+deux numero de telephone ??? // done
+deux barres + 2 lignes // done
+4 lignes // done
+6 categories // done
 ajout boutiques () aller vers la boutique*
-boutons doré
-nseghrou fiha 
+boutons doré //done
+nseghrou fiha // 
 ville recherche
 services ==> 
