@@ -195,6 +195,7 @@
 
 <script>
     export default {
+        layout:'espace',
         data() {
             return {
                firstname: 'Mourad',

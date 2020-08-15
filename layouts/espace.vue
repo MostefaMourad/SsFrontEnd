@@ -1,8 +1,7 @@
 <template>
   <v-app light>
     <v-navigation-drawer
-      dark
-      color="primary"
+      color="white"
       v-model="drawer"
       :mini-variant="miniVariant"
       :clipped="clipped"
@@ -93,14 +92,19 @@
                 fixed: false,
                 itemss: [
                     {
-                    icon: 'mdi-apps',
+                    icon: 'mdi-package-variant',
                     title: 'Mes Produits',
                     to: '/vendeur/espace/mesproduits'
                     },
                     {
-                    icon: 'mdi-chart-bubble',
+                    icon: 'mdi-barcode',
                     title: 'Mes Commmandes',
                     to: '/vendeur/espace/mescommandes'
+                    },
+                    {
+                    icon: 'mdi-store',
+                    title: 'Boutique',
+                    to: '/vendeur/profil'
                     }
                 ],
                 miniVariant: false,

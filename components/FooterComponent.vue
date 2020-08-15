@@ -26,6 +26,7 @@
           <v-container>
               <v-row class="container-fluid text-center text-md-left">
                 <v-col class="col-md-3 mt-md-0 mt-3">
+                    <img src="~/assets/logo_footer.png" style="margin-top:-30px;" height="150" alt="">
                 </v-col>
                 <hr class="clearfix w-100 d-md-none pb-3">
                 <v-col class="col-md-3 mb-md-0 mb-3">

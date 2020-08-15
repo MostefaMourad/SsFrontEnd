@@ -5,7 +5,7 @@
     <v-hover v-slot:default="{ hover }">
         <v-card
         class="mx-auto"
-        max-width="344"
+        max-width="200"
         >
           <v-img
             :aspect-ratio="16/9"
@@ -30,18 +30,18 @@
               color="primary"
               class="white--text"
               fab
-              large
               right
+              small
               top
               @click="$emit('open')"
             >
               <v-icon>mdi-cart</v-icon>
             </v-btn>
-            <v-card-title>
+            <v-card-title class="writing">
             Top western road trips
             </v-card-title>
 
-            <v-card-subtitle>
+            <v-card-subtitle class="writing1">
             1,000 miles of wonder
             </v-card-subtitle>
           </v-card-text>
@@ -69,5 +69,12 @@
   opacity: .5;
   position: absolute;
   width: 100%;
+}
+.writing{
+  font-size: 12px;
+  margin-top: -20px;
+}
+.writing1{
+  font-size: 11px;
 }
 </style>
