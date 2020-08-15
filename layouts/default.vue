@@ -9,7 +9,7 @@
         <v-icon>
           {{h.icon}}
         </v-icon>
-          <a :href="h.ref">
+          <a :href="h.ref" class="cc">
             {{h.titre}}
           </a>  
       </v-col>
@@ -56,11 +56,11 @@ export default {
 }
 </script>
 <style  scoped>
-a{
+.cc{
   color: whitesmoke;
   text-decoration: none;
 }
-a:hover{
+.cc:hover{
     text-decoration: underline;
 }
 </style>

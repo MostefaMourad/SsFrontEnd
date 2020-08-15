@@ -1,7 +1,7 @@
 <template>
     <v-container>
-        <v-row>
-         <v-col v-for="item in items" :key="item.title" align="center" cols="12" md="4">
+        <v-row align="center">
+         <v-col v-for="item in items" :key="item.title" align="center" cols="12" md="2">
           <!--- Barre   -->
           <v-row align="center">
             <h1>
@@ -12,12 +12,10 @@
             <v-hover>
                 <template v-slot:default="{ hover }">
                 <v-card
-                    width="344"
+                    width="200"
                     elevation="0"
                 >
-                <v-container>
-                    <v-row>
-                        <v-col md="5">
+                        <v-col>
                             <v-avatar
                             class="ma-3"
                             tile
@@ -25,29 +23,25 @@
                             >
                             <v-img :src="produit.src"></v-img>
                             </v-avatar>
-                        </v-col>
-                        <v-col md="7">
                             <v-card-title
                             v-text="produit.title"
                             ></v-card-title>
                             <v-card-subtitle v-text="produit.artist"></v-card-subtitle>
                         </v-col>
-                    </v-row>
-                </v-container>
                 <v-fade-transition>
                 <v-overlay
                     v-if="hover"
                     absolute
                     color="primary"
                 >
-                    <v-btn @click="dialog = true">Voir Plus d'infos</v-btn>
+                    <v-btn @click="dialog = true" >Voir Plus d'infos</v-btn>
                 </v-overlay>
                 </v-fade-transition>    
               </v-card>
              </template>
            </v-hover>
           </v-row > 
-        </v-col>
+            </v-col>
         </v-row>
         <!-------------------  Pop détails de Produit ----------->
         <v-row justify="center">
@@ -128,6 +122,15 @@
                     {
                       title:"Catégorie 3",
                     },
+                    {
+                      title:"Catégorie 4",
+                    },
+                    {
+                      title:"Catégorie 5",
+                    },
+                    {
+                      title:"Catégorie 6",
+                    },
                 ],
                 produits:[
                     {
@@ -148,11 +151,6 @@
                     {
                     src: 'https://cdn.vuetifyjs.com/images/cards/halcyon.png',
                     title: 'titre1',
-                    artist: 'Ellie Goulding',
-                    },
-                    {
-                    src: 'https://cdn.vuetifyjs.com/images/cards/halcyon.png',
-                    title: 'titre2',
                     artist: 'Ellie Goulding',
                     },
                 ],
