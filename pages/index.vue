@@ -24,6 +24,8 @@
       <v-row>
         <!--- Nos Meilleur Produit  -->
         <best-component> </best-component>
+        <best-component> </best-component>
+        <best-component> </best-component>
       </v-row>
       <v-row>
         <!--- Publicité  -->
