@@ -8,6 +8,7 @@
                         dark
                         v-bind="attrs"
                         v-on="on"
+                        color="#d6c096"
                         >
                         <v-app-bar-nav-icon></v-app-bar-nav-icon>
                         Catégories

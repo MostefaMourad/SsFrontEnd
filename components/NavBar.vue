@@ -34,7 +34,7 @@
             <v-btn
                 v-bind="attrs"
                 v-on="on"
-                @click="$router.push('/client/panier')"
+                @click="$router.push('/client/nosservices')"
                 dark
                 color="#d6c096"
               >
