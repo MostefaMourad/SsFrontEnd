@@ -3,11 +3,9 @@
         <v-row align="center">
          <v-col v-for="item in items" :key="item.title" align="center" cols="12" md="2">
           <!--- Barre   -->
-          <v-row align="center">
-            <h1>
+            <h2>
               {{item.title}}
-            </h1>
-          </v-row>
+            </h2>
           <v-row v-for="produit in produits" :key="produit.title" align="center">
             <v-hover>
                 <template v-slot:default="{ hover }">

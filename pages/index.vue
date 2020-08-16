@@ -31,13 +31,17 @@
         <!--- Publicité  -->
         <add-component :height="200"></add-component>
       </v-row>
-      <v-row>
-        <!--- Barre des catégories aléatoire  -->
-        <bar-component> </bar-component>
-      </v-row>
-            <v-row>
-        <!--- Publicité  -->
-        <add-component :height="200"></add-component>
+          <v-row>
+            <!--- Barre des catégories aléatoire  -->
+            <bar-component> </bar-component>
+          </v-row>
+        <v-row>
+          <!--- Publicité  -->
+          <add-component :height="200"></add-component>
+          <!-- Boutique ----->
+          <boutique-component>
+            
+          </boutique-component>
       </v-row>
   </v-container>
 </template>
@@ -48,6 +52,7 @@ import AddComponent from '@/components/AddComponent.vue';
 import BestComponent from '@/components/BestComponent.vue';
 import BarComponent from '@/components/BarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
+import BoutiqueComponent from '@/components/BoutiqueComponent.vue';
 export default {
   components: {
     CategorieComponent,
@@ -55,6 +60,7 @@ export default {
     BestComponent,
     BarComponent,
     FooterComponent,
+    BoutiqueComponent,
   }
 }
 </script>

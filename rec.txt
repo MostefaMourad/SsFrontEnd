@@ -17,7 +17,7 @@ deux numero de telephone ??? // done
 deux barres + 2 lignes // done
 4 lignes // done
 6 categories // done
-ajout boutiques () aller vers la boutique*
+ajout boutiques () aller vers la boutique* // done
 boutons doré //done
 nseghrou fiha // done
 ville recherche

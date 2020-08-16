@@ -139,14 +139,6 @@
                     ],
                 },
                             {
-                    action: 'mdi-layers',
-                    title: 'Services',
-                    active: false,
-                    items: [
-                    { title: 'Recouvrement de créance et factures' },
-                    ],
-                },
-                            {
                     action: 'mdi-pulse',
                     title: 'Santé',
                     active: false,

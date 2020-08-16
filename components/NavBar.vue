@@ -12,9 +12,6 @@
             <v-toolbar-title>SOS SHOP</v-toolbar-title>
           </v-col>
           <v-spacer></v-spacer>
-          <v-col md="4">
-            <search-component> </search-component>
-          </v-col>
           <v-col>
             <connect-component> </connect-component>
           </v-col>
@@ -33,6 +30,17 @@
                 Panier
               </v-btn>
             </v-col>
+
+            <v-btn
+                v-bind="attrs"
+                v-on="on"
+                @click="$router.push('/client/panier')"
+                dark
+                color="#d6c096"
+              >
+              <v-icon left >mdi-layers</v-icon>
+              Nos Services
+            </v-btn>
         </v-row>
       </v-container> 
     </v-app-bar>
