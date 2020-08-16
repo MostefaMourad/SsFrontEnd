@@ -5,73 +5,48 @@
         >
             <v-container>
                 <v-row align="center">
-                <v-col md="5">
-                    <v-row align="center">
-                        <v-col md="4">
-                            <v-img src="https://picsum.photos/510/300?random"></v-img>
-                        </v-col>
-                        <v-spacer> </v-spacer>
-                        <v-col md="8">
-                            <v-row>
-                            <h5 class="font-weight-light grey--text">
-                                    Vendeur : {{commande.vendeur}}
-                            </h5>
-                            </v-row>
-                            <v-row>
-                            <h4>
-                                {{commande.titre}} 
-                            </h4>
-                            </v-row>
-                            <v-row>
-                                <v-btn
-                                text
-                                color="primary"
-                                >
-                                <v-icon left >mdi-delete</v-icon>
-                                Supprimer
-                                </v-btn>
-                            </v-row>
-                            </v-col>
-                    </v-row>
+                <v-col md="3">
+                    <v-img src="https://picsum.photos/510/300?random"></v-img> 
+                </v-col>
+                <v-col md="4">
+                    <h6 class="font-weight-light grey--text">
+                        Vendeur : {{commande.vendeur}}
+                    </h6>
+                    <h5>
+                        {{commande.titre}} 
+                    </h5>
+                    <v-btn
+                    text
+                    color="primary"
+                    >
+                    <v-icon left >mdi-delete</v-icon>
+                    Supprimer
+                    </v-btn>
                 </v-col>
                 <v-divider
                 class="mx-4"
                 vertical
                 ></v-divider>
-                <v-col  md="1">
+                <v-col md="2">
                     <v-select
                     :items="items"
                     value="1"
+                    label="Quantité :"
                     dense
                     ></v-select>
-                </v-col>
-                <v-divider
-                class="mx-4"
-                vertical
-                ></v-divider>
-                <v-col  md="1.5">
-                    <h3>
+                    <h5>
                         {{commande.prix}} DA
-                    </h3>
+                    </h5>
                 </v-col>
                 <v-divider
                 class="mx-4"
                 vertical
                 ></v-divider>
-                <v-col  md="1">
-                    <h3>
-                        {{commande.livraison}} DA
-                    </h3>
+                <v-col md="1.5">
+                        <h5 class="font-weight-light primary--text">
+                            total : <br> {{commande.prix+commande.livraison}} DA
+                        </h5> 
                 </v-col>
-                <v-divider
-                class="mx-4"
-                vertical
-                ></v-divider>
-                <v-col  md="2">
-                        <h2 class="font-weight-light primary--text">
-                            {{commande.prix+commande.livraison}} DA
-                        </h2> 
-                </v-col> 
                 </v-row>
             </v-container>
     </v-card>  

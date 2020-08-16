@@ -1,42 +1,13 @@
 <template>
     <v-container>
-        <v-row>
-         <v-col>
-            <h2>
-                Panier ({{article}} arcticles)
-            </h2>
-         </v-col>
-        </v-row>
-        <v-row align="center"> 
-           <v-col align="left" md="5">
-               <h2 class="font-weight-light grey--text title mb-2">
-                    ARTICLE
-                </h2> 
-           </v-col>
-           <v-col align="center" md="1">
-               <h2 class="font-weight-light grey--text title mb-2">
-                    QUANTITÉ
-                </h2>
-           </v-col>
-           <v-col align="center" md="1.5">
-               <h2 class="font-weight-light grey--text title mb-2">
-                    PRIX UNITAIRE
-                </h2>
-           </v-col>
-           <v-col align="center" md="1">
-               <h2 class="font-weight-light grey--text title mb-2">
-                    LIVRAISON
-                </h2>
-           </v-col>
-           <v-col align="center" md="2">
-               <h2 class="font-weight-light grey--text title mb-2">
-                    SOUS-TOTAL
-                </h2>   
-           </v-col> 
-        </v-row>
         <!-------- Les Commandes --------------------->
         <v-row align="center" v-for="n in article" :key="n">
-            <commande-component> </commande-component>
+            <v-col md="6">
+                <commande-component> </commande-component>
+            </v-col>
+            <v-col md="6">
+                <commande-component> </commande-component>
+            </v-col>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </v-row>
         <v-row>

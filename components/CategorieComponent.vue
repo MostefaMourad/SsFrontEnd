@@ -5,6 +5,7 @@
   >
     <v-toolbar
       dark
+      color="#d6c096"
     >
       <v-toolbar-title> Categories </v-toolbar-title>
 

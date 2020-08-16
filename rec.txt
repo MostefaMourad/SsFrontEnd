@@ -19,6 +19,7 @@ deux barres + 2 lignes // done
 6 categories // done
 ajout boutiques () aller vers la boutique*
 boutons doré //done
-nseghrou fiha // 
+nseghrou fiha // done
 ville recherche
 services ==> 
+
