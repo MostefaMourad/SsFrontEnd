@@ -1,5 +1,7 @@
 <template>
-    <div>
+    <v-container
+    fluid
+    >
       <v-row v-for="i in 2" :key="i">
           <v-col v-for="n in 6" :key="n" md="2">
                 <v-card
@@ -22,6 +24,7 @@
                     <v-btn
                         color="primary"
                         small
+                        @click="$router.push('/accueil/boutique/1')"
                     >
                         Aller vers Boutique
                     </v-btn>
@@ -29,7 +32,7 @@
                 </v-card>
           </v-col>
       </v-row>  
-    </div>
+    </v-container>
 </template>
 
 <script>

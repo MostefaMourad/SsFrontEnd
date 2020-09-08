@@ -11,7 +11,9 @@
           <v-col md="2">
             <v-toolbar-title>
               <v-col class="col-md-3 mt-md-0 mt-3">
-                    <img src="~/assets/logo_nav.png" height="60" alt="">
+                  <a href="/SsFrontEnd/">
+                  <img src="~/assets/logo_nav.png" height="50" alt="Sos Shop">
+                </a>
                 </v-col>
             </v-toolbar-title>
           </v-col>

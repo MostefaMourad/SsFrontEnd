@@ -1,9 +1,10 @@
 <template>
-  <div>
+  <v-container
+  fluid
+  >
       <v-sheet
             class="mx-auto"
             light
-            max-width="1200"
             >
             <v-slide-group
               v-model="model"
@@ -92,7 +93,7 @@
                     </v-container>
                 </v-card>
             </v-dialog>
-  </div>
+  </v-container>
 </template>
 
 

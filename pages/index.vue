@@ -1,6 +1,8 @@
 <template>
-  <v-container>
-      <v-row style="margin-left:-60px;">
+  <v-container
+  fluid
+  >
+      <v-row>
         <v-col md="3">
           <!--- liste des catégorie   -->
           <categorie-component> </categorie-component>
