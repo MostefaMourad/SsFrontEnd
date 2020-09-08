@@ -129,3 +129,26 @@ import axios from 'axios';
           });     
       },
   }
+
+  //// 
+  export const state = () => ({
+  })
+
+export const getters = {
+    
+}
+export const mutations = {
+
+}
+
+export const actions = {
+   
+}
+
+created(){
+            this.$store.dispatch('dossiers/getData');
+        }
+
+        cats() {
+                        return this.$store.getters['categories/getCategories'];
+                    },

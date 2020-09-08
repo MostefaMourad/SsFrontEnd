@@ -9,7 +9,7 @@
         </v-col>
         <v-col md="9">
           <!--- Publicité principale  -->
-          <add-component :height="700"></add-component>
+          <add-component :height="700" :type="'first'"></add-component>
         </v-col> 
       </v-row>
       <v-devider> </v-devider>
@@ -31,7 +31,7 @@
       </v-row>
       <v-row>
         <!--- Publicité  -->
-        <add-component :height="200"></add-component>
+        <add-component :height="200" :type="'second'"></add-component>
       </v-row>
           <v-row>
             <!--- Barre des catégories aléatoire  -->
@@ -39,7 +39,7 @@
           </v-row>
         <v-row>
           <!--- Publicité  -->
-          <add-component :height="200"></add-component>
+          <add-component :height="200" :type="'third'"></add-component>
           <!-- Boutique ----->
           <boutique-component>
             
@@ -63,6 +63,9 @@ export default {
     BarComponent,
     FooterComponent,
     BoutiqueComponent,
-  }
+  },
+  created () {
+    this.$store.dispatch('adds/getData');
+  },
 }
 </script>

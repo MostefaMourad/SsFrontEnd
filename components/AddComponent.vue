@@ -4,54 +4,63 @@
     hide-delimiter-background
     show-arrows-on-hover
     :height="height"
-    style="margin-right:-100px"
   >
     <v-carousel-item
-      v-for="(slide, i) in slides"
+      v-for="(item,i) in adds"
       :key="i"
-    >
-      <v-sheet
-        :color="colors[i]"
-        height="100%"
-      >
-        <v-row
-          class="fill-height"
-          align="center"
-          justify="center"
-        >
-          <div class="display-3">{{ slide }} Publicité </div>
-        </v-row>
-      </v-sheet>
-    </v-carousel-item>
+      :src="item.src"
+      reverse-transition="fade-transition"
+      transition="fade-transition"
+    ></v-carousel-item>
   </v-carousel>
 </template>
 <script>
+import { mapState } from 'vuex'
+
     export default {
         data() {
             return {
-                colors: [
-                'indigo',
-                'warning',
-                'pink darken-2',
-                'red lighten-1',
-                'deep-purple accent-4',
-                ],
-                slides: [
-                'Premiére',
-                'Seconde',
-                'Troisième',
-                'Quatrième',
-                'Cinquième',
-                ],
-                windowSize:700,
+               items: [
+                {
+                  src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+                },
+                {
+                  src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
+                },
+                {
+                  src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
+                },
+                {
+                  src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
+                },
+              ],
             }
         },
-          props: {
+        props: {
             height: {
                 type: Number,
                 default: 500 
             },
+            type: {
+                type: String,
+                default: 'first' 
+            },
         },
+        computed: mapState({
+          adds(state){
+            return (this.$store.getters['adds/getAdds']).filter(d => {
+              if(d.type == this.type){
+                return {
+                path:d.path,
+                } 
+              }
+            }).map(d => {
+                return {
+                src:d.path,
+                } 
+            });
+          }
+        }),
     }
 </script>
 
