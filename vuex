@@ -1,0 +1,131 @@
+import axios from "axios";
+
+export const state = () => ({
+    token:'Bearer ',
+    auth:false,
+    errorsMessage : '',
+    userData:null,
+    unauth:false,
+  })
+
+export const getters = {
+    getToken : state => {
+        return state.token;
+    },
+    getAuthenticated : state => {
+        return state.auth;
+    },
+    getErrors : state => {
+        return state.errorsMessage;
+    },
+    getUnauth : state => {
+        return state.unauth;
+    }
+}
+export const mutations = {
+
+    SET_TOKEN : (state ,token ) => {
+        state.token = token;
+    },
+    SET_AUTH : state => {
+        state.auth = true;
+    },
+    SET_ERROR : (state ,msg ) => {
+        state.errorsMessage = '';
+        state.errorsMessage = msg ;   
+    },
+    SET_USER : (state , userd) => {
+        state.userData  = userd;
+    },
+    RESET : state  => {
+        state.errorsMessage = '';
+        state.userData  = null;
+        state.unauth = false;
+    },
+    SET_UNAUTH : state => {
+        state.unauth=true;
+    }
+}
+
+export const actions = {
+   login(context,Data){
+     context.commit('RESET');  
+     context.commit('SET_USER',Data.user);
+     let self = this;
+        var x = axios.post(`http://127.0.0.1:8000/api/login`, {
+            email: Data.user.email,
+            password: Data.user.password
+        }).then(function (response) {
+            context.commit('SET_AUTH');
+            context.commit('SET_TOKEN','Bearer '+response.data.success.token);
+            localStorage.setItem('token',response.data.success.token);
+            localStorage.setItem('auth',true);
+            Data.self.$router.push('/accueil');
+        })
+        .catch(function (error) {
+            if(error.response.data.error){
+            context.commit('SET_ERROR',"Vous n'etes pas autorisé");    
+            }
+            else{
+            context.commit('SET_ERROR',"Verifier votre email et mot de passe");    
+            }
+            context.commit('SET_UNAUTH');
+            localStorage.setItem('auth',false);
+        }); 
+       },
+    load (context){
+        if(localStorage.auth){
+            if(localStorage.getItem('auth')==true){
+                context.commit('SET_AUTH');
+                context.commit('SET_TOKEN','Bearer '+localStorage.getItem('token'));
+            }
+        }
+    }  
+}
+
+
+///////////////////////////////////////////////////
+
+import axios from 'axios';
+
+ export const state = () => ({
+    fichiers : [] ,
+    activeFile : {}
+  })
+  export const getters = {
+    getFiles : state => {
+      var files = state.fichiers.map(file => {
+        return {
+           name:file.name,
+           id:file.id,
+           image:file.image_url,
+           file:file.file_url,
+           description:file.description,
+           extension:file.extension,
+           }
+      });
+      return files;
+    },
+  }
+  export const mutations = {
+    SET_FILES :(state,data) => {
+        state.fichiers = data;
+    },
+  /*  SET_ACT : (state,data) => {
+        state.activeFolder = data;
+    } */
+  }
+  export const actions = {
+      getData(context){ 
+      axios.get(`http://127.0.0.1:8000/api/espace/fichier`,{
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }},
+          )
+          .then(function (response) {
+          context.commit('SET_FILES',response.data.data); 
+          })
+          .catch(function (error) {   
+          });     
+      },
+  }

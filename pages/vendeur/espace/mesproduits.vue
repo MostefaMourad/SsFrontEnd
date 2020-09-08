@@ -7,7 +7,7 @@
       <v-data-table
         :headers="headers"
         :items="data"
-        sort-by="nom"
+        sort-by="titre"
         class="elevation-1"
       >
         <template v-slot:top>
@@ -21,22 +21,84 @@
               vertical
             ></v-divider>
             <v-spacer></v-spacer>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <v-btn color="primary" @click="dialog1 = true">
+            <v-dialog v-model="dialog" max-width="500px">
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn
+                color="primary"
+                dark
+                class="mb-2"
+                v-bind="attrs"
+                v-on="on"
+              >
               <v-icon>
                 mdi-plus
               </v-icon>
-              Ajouter Un produit
-            </v-btn>
+              Ajouter un Produit</v-btn>
+            </template>
+            <v-card>
+              <v-card-title>
+                <span class="headline">{{ formTitle }}</span>
+              </v-card-title>
+                  <v-card-text>
+                    <v-container>
+                      <v-row>
+                        <v-col cols="12" sm="6" md="12">
+                          <v-text-field v-model="editedItem.titre" label="Titre"></v-text-field>
+                        </v-col>
+                        <v-col cols="12" sm="6" md="12">
+                          <v-text-field v-model="editedItem.description" label="Description"></v-text-field>
+                        </v-col>
+                        <v-col cols="12" sm="6" md="4">
+                          <v-text-field v-model="editedItem.prix" label="Prix (DA)"></v-text-field>
+                        </v-col>
+                        <v-col cols="12" sm="6" md="4">
+                          <v-text-field v-model="editedItem.quantite" label="Quantité (unité)"></v-text-field>
+                        </v-col>
+                        <v-col cols="12" sm="6" md="4">
+                          <v-text-field v-model="editedItem.poids" label="Poids (Kg)"></v-text-field>
+                        </v-col>
+                        <v-col cols="12" sm="6" md="6">
+                          <v-text-field v-model="editedItem.marque" label="Marque"></v-text-field>
+                        </v-col>
+                        <v-col cols="12" sm="6" md="6">
+                          <v-text-field v-model="editedItem.couleur" label="Couleur"></v-text-field>
+                        </v-col>
+                        <v-col cols="12" sm="6" md="4">
+                          <v-text-field v-model="editedItem.longueur" label="Longueur (m)"></v-text-field>
+                        </v-col>
+                        <v-col cols="12" sm="6" md="4">
+                          <v-text-field v-model="editedItem.largeur" label="Largeur (m)"></v-text-field>
+                        </v-col>
+                        <v-col cols="12" sm="6" md="4">
+                          <v-text-field v-model="editedItem.hauteur" label="Hauteur (m)"></v-text-field>
+                        </v-col>
+                      </v-row>
+                      </v-container>
+                    </v-card-text>
+                    <v-card-actions>
+                      <v-col md="6" align="center">
+                         <v-btn color="grey" text @click="close">Cancel</v-btn>
+                      </v-col>
+                      <v-col md="6">
+                         <v-btn color="primary" width="100%" @click="save">Save</v-btn>
+                      </v-col>
+                    </v-card-actions>
+                  </v-card>
+                </v-dialog>
           </v-toolbar>
         </template>
-        <template v-slot:item.reponses="{ item }">
-            <v-btn icon @click="voir(item)" color="primary">
+        <template v-slot:item.actions="{ item }">
+            <v-btn icon small @click="editItem(item)" color="primary">
               <v-icon>
                 mdi-pen
               </v-icon>
             </v-btn>
-            <v-btn icon @click="voir(item)" color="error">
+            <v-btn icon small @click="voir(item)" color="secondary">
+              <v-icon>
+                mdi-image-area
+              </v-icon>
+            </v-btn>
+            <v-btn icon small @click="deleteItem(item)" color="error">
               <v-icon>
                 mdi-delete
               </v-icon>
@@ -47,42 +109,29 @@
           </template>
         </v-data-table>
     </v-card>
-    <v-dialog v-model="dialog1" persistent max-width="600px">
-      <template>
-        <v-btn
-          color="primary"
-          disabled
-          hidden
-        >
-        </v-btn>
-      </template>
-      <v-card>
-        <v-card-title>
-          <v-col align="center">
-             Exporter les données
-          </v-col>
-        </v-card-title>
-        <v-card-text>
-          <v-col align="left">
-            <h1 class="class1"> Choisir la format :</h1>
-            <v-select
-              :items="formats"
-              label="Format"
-              outlined
-            ></v-select>
-            <v-text-field
-            label="Nom du Fichier"
-            outlined
-          ></v-text-field>
-          </v-col>
-        </v-card-text>
-        <v-card-actions>
-          <v-col align="center">
-            <v-btn color="primary" width="90%" @click="dialog1 = false">Exporter</v-btn>
-          </v-col>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
+       <v-dialog v-model="dialog1" persistent max-width="500">
+                <template>
+                <v-btn
+                    color="primary"
+                    dark
+                    disabled
+                >
+                </v-btn>
+                </template>
+                <v-card>
+                    <v-container align="center">
+                      <v-carousel hide-delimiters>
+                          <v-carousel-item
+                          v-for="(item,i) in editedItem.images"
+                          :key="i"
+                          :src="item.src"
+                          max-height="95%"
+                          ></v-carousel-item>
+                      </v-carousel>
+                      <v-btn width="100%" @click="close()" color="primary">Fermer</v-btn>
+                    </v-container>
+                </v-card>
+            </v-dialog>
   </v-container>
 </template>
 
@@ -93,26 +142,56 @@
       dialog: false,
       headers: [
         {
-          text: 'Nom',
-          align: 'start',
-          value: 'nom',
+          text: 'Titre',
+          align: 'titre',
+          value: 'titre',
         },
-        { text: 'Prénom', value: 'prenom' },
-        { text: 'Lieu de Naissance', value: 'lieu_naissance' },
-        { text: 'Tranche Age', value: 'tranche_age' },
-        { text: 'Sexe', value: 'sexe' },
-        { text: 'Latitude', value: 'latitude' },
-        { text: 'Longitude', value: 'longitude' },
-        { text: 'Réponses', value: 'reponses', sortable: false },
+        { text: 'Description', value: 'description' },
+        { text: 'Prix(DA)', value: 'prix' },
+        { text: 'Marque', value: 'marque' },
+        { text: 'Quantite', value: 'quantite' },
+        { text: 'Couleur', value: 'couleur' },
+        { text: 'Longueur(m)', value: 'longueur' },
+        { text: 'Largeur(m)', value: 'largeur' },
+        { text: 'Hauteur(m)', value: 'hauteur' },
+        { text: 'Poids(Kg)', value: 'poids' },
+        { text: 'Actions', value: 'actions', sortable: false },
       ],
-      dialog:false,
-      dialog1:false,
       data: [],
       editedIndex: -1,
       dialog:false,
+      dialog1:false,
+      editedItem: {
+        titre: '',
+        description: '',
+        prix: 0,
+        marque: '',
+        quantite:2,
+        couleur: '',
+        longueur: 0,
+        largeur: 0,
+        hauteur: 0,
+        poids: 0,
+        images:[],
+      },
+      defaultItem: {
+        titre: '',
+        description: '',
+        prix: 0,
+        marque: '',
+        couleur: '',
+        longueur: 0,
+        largeur: 0,
+        hauteur: 0,
+        poids: 0,
+        images:[],
+      },
     }),
 
     computed: {
+      formTitle () {
+        return this.editedIndex === -1 ? 'Nouveau Produit' : 'Editer les Informations du Produit'
+      },
     },
 
     watch: {
@@ -120,33 +199,143 @@
         val || this.close()
       },
     },
-
+    created () {
+      this.initialize()
+    },
     methods: {
-
-      voir (item) {
-       /* this.editedIndex = this.desserts.indexOf(item)
-        this.editedItem = Object.assign({}, item) */
+      initialize () {
+      this.data = [
+        {
+        titre: 'titre1',
+        description: 'saddefqfsf',
+        prix: 12000,
+        marque: 'Nike',
+        quantite:2,
+        couleur: 'rouge',
+        longueur: 0.2,
+        largeur: 0.45,
+        hauteur: 0.22,
+        poids: 0.5,
+        images: [
+            {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+            },
+            {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
+            },
+            {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
+            },
+            {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
+            },
+        ],
+        },
+        {
+        titre: 'titre1',
+        description: 'saddefqfsf',
+        prix: 12000,
+        marque: 'Nike',
+        quantite:2,
+        couleur: 'rouge',
+        longueur: 0.2,
+        largeur: 0.45,
+        hauteur: 0.22,
+        poids: 0.5,
+        images: [
+            {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+            },
+            {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
+            },
+            {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
+            },
+            {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
+            },
+        ],
+        },{
+        titre: 'titre1',
+        description: 'saddefqfsf',
+        prix: 12000,
+        marque: 'Nike',
+        quantite:2,
+        couleur: 'rouge',
+        longueur: 0.2,
+        largeur: 0.45,
+        hauteur: 0.22,
+        poids: 0.5,
+        images: [
+            {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+            },
+            {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
+            },
+            {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
+            },
+            {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
+            },
+        ],
+        },{
+        titre: 'titre1',
+        description: 'saddefqfsf',
+        prix: 12000,
+        marque: 'Nike',
+        quantite:2,
+        couleur: 'rouge',
+        longueur: 0.2,
+        largeur: 0.45,
+        hauteur: 0.22,
+        poids: 0.5,
+        images: [
+            {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+            },
+            {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
+            },
+            {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
+            },
+            {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
+            },
+        ],
+        },
+        ]
+      },
+      editItem (item) {
+        this.editedIndex = this.data.indexOf(item) 
+        this.editedItem = Object.assign({}, item)
+        this.dialog = true
+      },
+      voir(item){
+        this.editedIndex = this.data.indexOf(item)
+        this.editedItem = Object.assign({}, item)
         this.dialog1 = true
       },
-
       deleteItem (item) {
-        const index = this.desserts.indexOf(item)
-        confirm('Are you sure you want to delete this item?') && this.desserts.splice(index, 1)
+        const index = this.data.indexOf(item)
+        confirm('Are you sure you want to delete this item?') && this.data.splice(index, 1)
       },
-
       close () {
         this.dialog = false
+        this.dialog1 = false
         this.$nextTick(() => {
           this.editedItem = Object.assign({}, this.defaultItem)
           this.editedIndex = -1
         })
       },
-
       save () {
         if (this.editedIndex > -1) {
-          Object.assign(this.desserts[this.editedIndex], this.editedItem)
+          Object.assign(this.data[this.editedIndex], this.editedItem)
         } else {
-          this.desserts.push(this.editedItem)
+          this.data.push(this.editedItem)
         }
         this.close()
       },

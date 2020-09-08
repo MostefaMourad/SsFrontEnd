@@ -5,7 +5,7 @@
     flat
     >
     <v-row align="center">
-      <v-col v-for="h in head" :key="h.title" md="4" align="center">
+      <v-col v-for="h in head" :key="h.title" md="4" align="center" class="">
         <v-icon>
           {{h.icon}}
         </v-icon>
@@ -15,6 +15,7 @@
       </v-col>
     </v-row>
     </v-card>
+    
     <nav-bar></nav-bar>
     <v-main >
         <nuxt />
@@ -26,11 +27,14 @@
 
 <script>
 import NavBar from '~/components/NavBar.vue'
+import NavBarm from '@/components/NavBarm.vue';
 
 export default {
   
   data () {
     return {
+      mobileView: false,
+      showNav: false,
       head:[
         {
           titre:"0550 810 307",
@@ -52,7 +56,17 @@ export default {
   },
   components: {
     NavBar,
+    NavBarm,
   },
+  methods: {
+    handleView() {
+      this.mobileView = window.innerWidth <= 900;
+    }
+  },
+  created() {
+    this.handleView();
+    window.addEventListener('resize', this.handleView);
+  }
 }
 </script>
 <style  scoped>
