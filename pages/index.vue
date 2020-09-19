@@ -65,7 +65,7 @@ export default {
     BoutiqueComponent,
   },
   created () {
-    this.$store.dispatch('adds/getData');
+    this.$store.dispatch('getData');
   },
 }
 </script>

@@ -8,7 +8,7 @@
     <v-carousel-item
       v-for="(item,i) in adds"
       :key="i"
-      :src="item.src"
+      :src="item.path"
       reverse-transition="fade-transition"
       transition="fade-transition"
     ></v-carousel-item>
@@ -20,20 +20,7 @@ import { mapState } from 'vuex'
     export default {
         data() {
             return {
-               items: [
-                {
-                  src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
-                },
-                {
-                  src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
-                },
-                {
-                  src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
-                },
-                {
-                  src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
-                },
-              ],
+              adds:[],
             }
         },
         props: {
@@ -46,21 +33,19 @@ import { mapState } from 'vuex'
                 default: 'first' 
             },
         },
-        computed: mapState({
-          adds(state){
-            return (this.$store.getters['adds/getAdds']).filter(d => {
+        computed: {
+          pubs(){
+            var data =  this.$store.getters['getAdds'];
+            this.adds = data.filter(d => {
               if(d.type == this.type){
                 return {
                 path:d.path,
                 } 
               }
-            }).map(d => {
-                return {
-                src:d.path,
-                } 
             });
+            return this.adds;
           }
-        }),
+        },
     }
 </script>
 

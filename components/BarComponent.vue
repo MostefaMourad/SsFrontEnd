@@ -3,23 +3,23 @@
     fluid
     >
         <v-row align="center">
-         <v-col v-for="item in items" :key="item.title" align="center" cols="12" md="2">
+         <v-col v-for="item in items" :key="item.title" align="center" cols="12" md="3">
           <!--- Barre   -->
             <h2>
               {{item.title}}
             </h2>
-          <v-row v-for="produit in produits" :key="produit.title" align="center">
+              <v-container v-for="produit in produits" :key="produit.title"> 
             <v-hover>
                 <template v-slot:default="{ hover }">
                 <v-card
-                    width="200"
+                    width="300"
                     elevation="0"
                 >
                         <v-col>
                             <v-avatar
                             class="ma-3"
                             tile
-                            size="100"
+                            size="200"
                             >
                             <v-img :src="produit.src"></v-img>
                             </v-avatar>
@@ -40,8 +40,8 @@
               </v-card>
              </template>
            </v-hover>
-          </v-row > 
-            </v-col>
+           </v-container>
+        </v-col>
         </v-row>
         <!-------------------  Pop détails de Produit ----------->
         <v-row justify="center">
@@ -125,12 +125,6 @@
                     {
                       title:"Catégorie 4",
                     },
-                    {
-                      title:"Catégorie 5",
-                    },
-                    {
-                      title:"Catégorie 6",
-                    },
                 ],
                 produits:[
                     {
@@ -178,6 +172,11 @@
                 ],
             }
         },
+        computed: {
+            getAdds () {
+                return this.$store.getters.getAdds;
+            }
+        }
     }
 </script>
 

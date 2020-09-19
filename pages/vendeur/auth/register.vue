@@ -54,9 +54,9 @@
                 </v-col>
                 <v-col align="center" md="6">
                     <v-text-field
-                        v-model="sponsor"
-                        label="Parrainé Par(Sponsorisé Par)"
-                        prepend-icon="mdi-account-network"
+                        v-model="adresse"
+                        label="Adresse"
+                        prepend-icon="mdi-marker"
                         required
                     ></v-text-field>
                 </v-col>
@@ -156,7 +156,7 @@
                 tel:'',
                 tel1:'',
                 boutique:'',
-                sponsor:'',
+                adresse:'',
                 email:'',
                 c_email:'',
             }

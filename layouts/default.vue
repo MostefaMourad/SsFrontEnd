@@ -64,8 +64,7 @@ export default {
     }
   },
   created() {
-    this.handleView();
-    window.addEventListener('resize', this.handleView);
+    
   }
 }
 </script>
