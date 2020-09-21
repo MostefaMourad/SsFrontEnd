@@ -10,14 +10,7 @@ export const state = () => ({
 
 export const getters = {
     getAdds : state => {
-    var dir = "http://127.0.0.1:8000/storage/app/"
-    var adds = state.adds.map(add => {
-      return {
-         type:add.type,
-         path:dir+add.image,
-         }
-    });
-    return adds;  
+       return state.userData.publicites;
     },
     getProduitsf : state => {
       return state.userData.produitsf ;  
@@ -30,6 +23,9 @@ export const getters = {
     },
     getCategories : state => {
       return state.userData.sub_categories;
+    },
+    getBoutiques : state => {
+      return state.userData.vendeurs;
     }
 }
 export const mutations = {

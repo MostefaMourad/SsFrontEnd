@@ -50,9 +50,20 @@
         <v-row>
           <!--- Publicité  -->
           <add-component :height="200" :type="'third'"></add-component>
+        </v-row>
+        <v-row align="center">
+            <v-col align="center">
+              <h1 class="display-1 font-weight-light primary--text mb-2">
+                Nos Boutiques
+              </h1>
+              <h2 class="font-weight-light grey--text title mb-2">
+                Rencontrer nos meilleurs Vendeurs
+              </h2>
+            </v-col>
+          </v-row>
+          <v-row>  
           <!-- Boutique ----->
           <boutique-component>
-            
           </boutique-component>
       </v-row>
   </v-container>

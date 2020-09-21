@@ -2,8 +2,8 @@
     <v-container
     fluid
     >
-      <v-row v-for="i in 2" :key="i">
-          <v-col v-for="n in 6" :key="n" md="2">
+      <v-row>
+          <v-col v-for="vend in boutiques" :key="vend.id" md="2">
                 <v-card
                     class="mx-auto"
                     max-width="344"
@@ -15,10 +15,10 @@
                     ></v-img>
 
                     <v-card-title style="font-size:14px;">
-                    Nom Boutique
+                    {{vend.nom_boutique}}
                     </v-card-title>
                     <v-card-subtitle>
-                        Par : Nom Vendeur
+                        Par : {{vend.nom+" "+vend.prenom}}
                     </v-card-subtitle>
                     <v-card-actions >
                     <v-btn
@@ -37,7 +37,25 @@
 
 <script>
     export default {
-        
+        data() {
+            return {
+                vendeurs:[],
+            }
+        },
+        computed: {
+            bouts(){
+                return this.$store.getters['getBoutiques'];
+            },
+            boutiques(){
+                if(Array.isArray(this.bouts)){
+                  this.vendeurs = this.bouts;  
+                  return this.bouts;
+                }
+                else{
+                  return [];  
+                }
+            },
+        },
     }
 </script>
 
