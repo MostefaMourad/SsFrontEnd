@@ -6,7 +6,7 @@
     :height="height"
   >
     <v-carousel-item
-      v-for="(item,i) in adds"
+      v-for="(item,i) in pubs"
       :key="i"
       :src="item.path"
       reverse-transition="fade-transition"
@@ -15,8 +15,6 @@
   </v-carousel>
 </template>
 <script>
-import { mapState } from 'vuex'
-
     export default {
         data() {
             return {

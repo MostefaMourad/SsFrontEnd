@@ -183,3 +183,38 @@ export const actions = {
         commit('SET_DATA',rootState.userData.publicites);
       }
 }
+
+var data =  this.$store.getters['getAdds'];
+            this.adds = data.filter(d => {
+              if(d.type == this.type){
+                return {
+                path:d.path,
+                } 
+              }
+            });
+            return this.adds;
+
+
+
+prods(){
+            return this.$store.getters['getProduits'];
+        },
+        products(){
+            if(Array.isArray(this.prods)){
+              return this.prods.filter(d => {
+                return d.type === this.num
+            });
+            }
+            else{
+              return [];  
+            }
+        }
+        },
+var len = data.length/3 ;
+            if(this.num === 2){
+             this.produits = data.slice(len*this.num,data.length+1);
+            }
+            else{
+             this.produits = data.slice(len*this.num,len*(this.num+1));   
+            }
+            return this.produits;

@@ -63,9 +63,9 @@ export default {
       this.mobileView = window.innerWidth <= 900;
     }
   },
-  created() {
-    
-  }
+  created () {
+    this.$store.dispatch('getData');
+  },
 }
 </script>
 <style  scoped>

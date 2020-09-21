@@ -25,9 +25,9 @@
       </v-row>
       <v-row>
         <!--- Nos Meilleur Produit  -->
-        <best-component> </best-component>
-        <best-component> </best-component>
-        <best-component> </best-component>
+        <best-component :num="0" > </best-component>
+        <best-component :num="1" > </best-component>
+        <best-component :num="2" > </best-component>
       </v-row>
       <v-row>
         <!--- Publicité  -->
@@ -63,9 +63,6 @@ export default {
     BarComponent,
     FooterComponent,
     BoutiqueComponent,
-  },
-  created () {
-    this.$store.dispatch('getData');
-  },
+  }
 }
 </script>

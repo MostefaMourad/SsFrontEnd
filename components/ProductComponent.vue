@@ -2,10 +2,17 @@
 <template>
     <v-container>
         <v-row>
-    <v-hover v-slot:default="{ hover }">
+          <v-skeleton-loader
+            class="mx-auto"
+            width="200"
+            type="card"
+            :loading="load"
+          >
+          <v-hover v-slot:default="{ hover }">
         <v-card
         class="mx-auto"
-        max-width="200"
+        width="200"
+        height="220"
         >
           <v-img
             :aspect-ratio="16/9"
@@ -14,10 +21,10 @@
             <v-expand-transition>
               <div
                 v-if="hover"
-                class="d-flex transition-fast-in-fast-out primary darken-2 v-card--reveal display-3 white--text"
+                class="d-flex transition-fast-in-fast-out primary darken-2 v-card--reveal display-1 white--text"
                 style="height: 100%;"
               >
-                $14.99
+              {{item.prix}} DA
               </div>
             </v-expand-transition>
           </v-img>
@@ -38,15 +45,17 @@
               <v-icon>mdi-cart</v-icon>
             </v-btn>
             <v-card-title class="writing">
-            Top western road trips
+            {{item.titre}}
             </v-card-title>
 
             <v-card-subtitle class="writing1">
-            1,000 miles of wonder
+            {{item.description}}
             </v-card-subtitle>
           </v-card-text>
         </v-card>
       </v-hover>
+          
+          </v-skeleton-loader>
        </v-row>
     </v-container> 
 </template>
@@ -55,7 +64,33 @@
     export default {
         data() {
           return {
-           
+            loading:true,
+          }
+        },
+        props: {
+          product: {
+                Type: Object,
+                default: null
+          },
+        },
+        computed: {
+          item() {
+            if(this.product !== null){
+              this.loading = false;
+              return this.product;
+            }
+            else{
+              this.loading = true;
+              return {};
+            } 
+          },
+          load(){
+            if(this.product !== null){
+              return false;
+            }
+            else{
+              return true;
+            } 
           }
         },
     }
@@ -73,8 +108,14 @@
 .writing{
   font-size: 12px;
   margin-top: -20px;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .writing1{
   font-size: 11px;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 </style>

@@ -4,13 +4,14 @@ import axios from "axios";
 export const state = () => ({
     token : 'Bearer ',
     authenticated:false,
-    userData:{}, 
+    userData:{},
+    adds : [], 
   })
 
 export const getters = {
     getAdds : state => {
     var dir = "http://127.0.0.1:8000/storage/app/"
-    var adds = state.userData.publicites.map(add => {
+    var adds = state.adds.map(add => {
       return {
          type:add.type,
          path:dir+add.image,
@@ -18,34 +19,20 @@ export const getters = {
     });
     return adds;  
     },
-    getProduits : state => {
-      var dir = "http://127.0.0.1:8000/storage/app/"
-      var adds = state.userData.produits.map(product => {
-        var imgs = product.images;
-        var f = imgs.map(img => {
-          return dir+img;
-        });
-        return {
-          id:product.id,
-          titre:product.titre,
-          prix:product.prix,
-          marque:product.marque,
-          description:product.description,
-          poids:product.poids,
-          longueur:product.longueur,
-          largeur:product.largeur,
-          hauteur:product.hauteur,
-          couleur:product.couleur,
-          images:f,
-        }
-      });
-      return adds;  
+    getProduitsf : state => {
+      return state.userData.produitsf ;  
     },
-    
+    getProduitss : state => {
+      return state.userData.produitss ;  
+    },
+    getProduitst : state => {
+      return state.userData.produitst ;  
+    },
 }
 export const mutations = {
   SET_DATA :(state,data) => {
     state.userData = data;
+    state.adds = data.publicites;
   },
 }
 
