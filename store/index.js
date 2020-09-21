@@ -28,6 +28,9 @@ export const getters = {
     getProduitst : state => {
       return state.userData.produitst ;  
     },
+    getCategories : state => {
+      return state.userData.sub_categories;
+    }
 }
 export const mutations = {
   SET_DATA :(state,data) => {

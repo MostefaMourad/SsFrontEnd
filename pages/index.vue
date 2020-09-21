@@ -33,6 +33,16 @@
         <!--- Publicité  -->
         <add-component :height="200" :type="'second'"></add-component>
       </v-row>
+          <v-row align="center">
+            <v-col align="center">
+              <h1 class="display-1 font-weight-light primary--text mb-2">
+                Nos Catégories
+              </h1>
+              <h2 class="font-weight-light grey--text title mb-2">
+                Explorer nos catégories
+              </h2>
+            </v-col>
+          </v-row>
           <v-row>
             <!--- Barre des catégories aléatoire  -->
             <bar-component> </bar-component>

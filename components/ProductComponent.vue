@@ -27,36 +27,35 @@
               {{item.prix}} DA
               </div>
             </v-expand-transition>
-          </v-img>
-          <v-card-text
-            class="pt-6"
-            style="position: relative;"
-          >
-            <v-btn
-              absolute
-              color="primary"
-              class="white--text"
-              fab
-              right
-              small
-              top
-              @click="$emit('open')"
-            >
-              <v-icon>mdi-cart</v-icon>
-            </v-btn>
-            <v-card-title class="writing">
-            {{item.titre}}
-            </v-card-title>
+            </v-img>
+              <v-card-text
+                class="pt-6"
+                style="position: relative;"
+              >
+                <v-btn
+                  absolute
+                  color="primary"
+                  class="white--text"
+                  fab
+                  right
+                  small
+                  top
+                  @click="$emit('open')"
+                >
+                  <v-icon>mdi-cart</v-icon>
+                </v-btn>
+                <v-card-title class="writing">
+                {{item.titre}}
+                </v-card-title>
 
-            <v-card-subtitle class="writing1">
-            {{item.description}}
-            </v-card-subtitle>
-          </v-card-text>
-        </v-card>
-      </v-hover>
-          
-          </v-skeleton-loader>
-       </v-row>
+                <v-card-subtitle class="writing1">
+                {{item.description}}
+                </v-card-subtitle>
+              </v-card-text>
+            </v-card>
+          </v-hover>
+            </v-skeleton-loader>
+        </v-row>
     </v-container> 
 </template>
 
@@ -106,7 +105,7 @@
   width: 100%;
 }
 .writing{
-  font-size: 12px;
+  font-size: 16px;
   margin-top: -20px;
   overflow:hidden;
   text-overflow: ellipsis;
