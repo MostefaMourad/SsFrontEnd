@@ -6,15 +6,15 @@
                     <v-row>
                         <v-col align="center" md="6">
                             <v-text-field
-                                v-model="firstname"
-                                label="Prénom"
+                                v-model="user.nom"
+                                label="Nom"
                                 required
                             ></v-text-field>
                         </v-col>
                         <v-col align="center" md="6">
                             <v-text-field
-                                v-model="lastname"
-                                label="Nom"
+                                v-model="user.prenom"
+                                label="Prénom"
                                 required
                             ></v-text-field>
                         </v-col>
@@ -23,9 +23,11 @@
                         <v-col align="center" md="6">
                         <v-text-field
                             label="Email"
+                            v-model="user.email"
                             name="login"
                             prepend-icon="mdi-account"
                             type="text"
+                            :rules="emailRules"
                         ></v-text-field>
                         </v-col>
                        <v-col align="center" md="6"> 
@@ -33,11 +35,13 @@
                             id="password"
                             label="Mot de Passe"
                             name="password"
+                            v-model="user.password"
                             prepend-icon="mdi-lock"
                             :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
                             :type="show1 ? 'text' : 'password'"
                             hint="Au moins 8 caractères"
                             counter
+                            :rules="passRules"
                             @click:append="show1 = !show1"
                         ></v-text-field>
                        </v-col>
@@ -51,6 +55,7 @@
                           <v-text-field
                             label="Téléphone Mobile"
                             type="text"
+                            v-model="user.telephone"
                         ></v-text-field>
                         </v-col>
                     </v-row>
@@ -76,7 +81,7 @@
               <v-card-actions>
                   <v-row>
                       <v-col align="center">
-                          <v-btn color="primary" width="90%" @click="$router.push('/')" >créer un compte</v-btn>
+                          <v-btn color="primary" width="90%" @click="register()" >créer un compte</v-btn>
                       </v-col>
                   </v-row>
               </v-card-actions>
@@ -91,12 +96,31 @@
                 show1: false,
                 checkbox:false,
                 valid: false,
-                firstname: '',
-                lastname: '',
-                rules: {
-                required: value => !!value || 'Required.',
-                min: v => v.length >= 8 || 'Min 8 characters',
+                user:{
+                   nom: '',
+                   prenom: '',
+                   password:'',
+                   telephone:'',
+                   email:'',
                 },
+                emailRules: [
+                    v => !!v || 'E-mail est requis',
+                    v => /.+@.+\..+/.test(v) || 'E-mail doit être valide',
+                ],
+                passRules: [
+                    v => !!v || 'Mot de passe est requis',
+                    v => v.length >= 8 || 'Minimum 8 charactères',
+                ],
+            }
+        },
+        methods: {
+            register() {
+                if(this.checkbox){
+                    this.$store.dispatch('authClient/register',this.user);    
+                }
+                else{
+                    
+                }
             }
         },
     }

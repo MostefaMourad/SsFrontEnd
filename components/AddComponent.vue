@@ -31,23 +31,12 @@
             },
         },
         computed: {
-         /* pubs(){
-            var data =  this.$store.getters['getAdds'];
-            this.adds = data.filter(d => {
-              if(d.type == this.type){
-                return {
-                path:d.path,
-                } 
-              }
-            });
-            return this.adds;
-          },*/
           pubs(){
                 return this.$store.getters['getAdds'];
           },
           publicites(){
                 if(Array.isArray(this.pubs)){
-                  var dir = "http://localhost:3000/SsFrontEnd/storage/app/"  
+                  var dir = "http://127.0.0.1:8000/storage/app/"  
                   this.adds = this.pubs.filter(d => {
                       return d.type === this.type
                   }).map(add => {
