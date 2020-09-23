@@ -58,6 +58,10 @@
                 ],
             }
         },
+        created () {
+           // this.$store.dispatch('user/getData');
+           this.$store.dispatch('getUserData');
+        },
     }
 </script>
 

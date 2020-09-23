@@ -95,6 +95,7 @@
                email:"hm_mostefa@esi.dz",
                tel:"781872253",
                items: ['Veuillez sélectionner', 'Homme', 'Femme'],
+               date:'',
                modal:false,
                
             }

@@ -12,7 +12,6 @@
           <add-component :height="700" :type="'first'"></add-component>
         </v-col> 
       </v-row>
-      <v-devider> </v-devider>
       <v-row align="center">
         <v-col align="center">
           <h1 class="display-1 font-weight-light primary--text mb-2">

@@ -2,8 +2,8 @@ import axios from "axios";
 
 
 export const state = () => ({
-    token : 'Bearer ',
-    authenticated:false,
+  token : 'Bearer ',
+  authenticated:true,
     userData:{},
     adds : [], 
   })
@@ -31,7 +31,9 @@ export const getters = {
 export const mutations = {
   SET_DATA :(state,data) => {
     state.userData = data;
-    state.adds = data.publicites;
+  },
+  SET_USER :(state,data) => {
+    state.user.userData = data;
   },
 }
 
@@ -44,5 +46,18 @@ export const actions = {
     })
     .catch(function (error) {   
     });     
-  }, 
+  },
+  getUserData(context){
+    var self = this; 
+    axios.get(`http://127.0.0.1:8000/api/acheteur/profil`,{
+    headers: {
+          'Authorization': self.state.user.token
+        }},
+        )
+        .then(function (response) {
+          context.commit('SET_USER',response.data.data); 
+        })
+        .catch(function (error) {   
+    });     
+   }, 
 }

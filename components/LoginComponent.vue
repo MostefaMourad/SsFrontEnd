@@ -22,6 +22,8 @@
                             name="login"
                             prepend-icon="mdi-account"
                             type="text"
+                            :rules="emailRules"
+                            v-model="user.email"
                         ></v-text-field>
                        </v-col>
                     </v-row>
@@ -31,11 +33,13 @@
                             id="password"
                             label="Mot de Passe"
                             name="password"
+                            v-model="user.password"
                             prepend-icon="mdi-lock"
                             :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
                             :type="show1 ? 'text' : 'password'"
                             hint="Au moins 8 caractères"
                             counter
+                            :rules="passRules"
                             @click:append="show1 = !show1"
                         ></v-text-field>
                        </v-col>
@@ -62,7 +66,7 @@
               <v-card-actions>
                   <v-row>
                       <v-col align="center">
-                          <v-btn color="primary" width="90%" @click="$router.push('/vendeur/espace/mesproduits')" >S'identifier</v-btn>
+                          <v-btn color="primary" width="90%" @click="login()" >S'identifier</v-btn>
                       </v-col>
                   </v-row>
               </v-card-actions>
@@ -76,13 +80,25 @@
             return {
                 show1: false,
                 checkbox:false,
-                rules: {
-                required: value => !!value || 'Required.',
-                min: v => v.length >= 8 || 'Min 8 characters',
+                user:{
+                   password:'',
+                   email:'',
                 },
+                emailRules: [
+                    v => !!v || 'E-mail est requis',
+                    v => /.+@.+\..+/.test(v) || 'E-mail doit être valide',
+                ],
+                passRules: [
+                    v => !!v || 'Mot de passe est requis',
+                    v => v.length >= 8 || 'Minimum 8 charactères',
+                ],
             }
         },
-        
+        methods: {
+            login() {
+              this.$store.dispatch('authClient/login',this.user);   
+            }
+        },
     }
 </script>
 

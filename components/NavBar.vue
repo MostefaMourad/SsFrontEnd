@@ -26,8 +26,6 @@
           </v-col>
           <v-col>
               <v-btn
-                v-bind="attrs"
-                v-on="on"
                 @click="$router.push('/client/panier')"
                 dark
                 color="#d6c096"
@@ -38,8 +36,6 @@
             </v-col>
 
             <v-btn
-                v-bind="attrs"
-                v-on="on"
                 @click="$router.push('/client/nosservices')"
                 dark
                 color="#d6c096"
