@@ -7,15 +7,15 @@
         <v-row>
         <v-col align="center" md="6">
             <v-text-field
-                v-model="firstname"
-                label="Prénom"
+                v-model="user.nom"
+                label="Nom"
                 required
             ></v-text-field>
         </v-col>
         <v-col align="center" md="6">
             <v-text-field
-                v-model="lastname"
-                label="Nom"
+                v-model="user.prenom"
+                label="Prénom"
                 required
             ></v-text-field>
         </v-col>
@@ -25,14 +25,14 @@
             <v-text-field
                 label="Téléphone Mobile (+213)"
                 type="text"
-                v-model="tel"
+                v-model="user.telephone"
             ></v-text-field> 
         </v-col>
         <v-col align="center" md="6">
             <v-text-field
                 label="Téléphone Mobile Supplémentaire (+213)"
                 type="text"
-                v-model="tel1"
+                v-model="user.telephone_sup"
             ></v-text-field> 
         </v-col>
         </v-row>
@@ -40,27 +40,21 @@
             <v-col>
                 <v-text-field
                     label="Adresse"
-                    v-model="adress"
-                ></v-text-field>
-            </v-col>
-        </v-row>
-        <v-row>
-            <v-col>
-                <v-text-field
-                    label="Information supplémentaire"
-                    v-model="adress"
+                    v-model="user.adresse"
                 ></v-text-field>
             </v-col>
         </v-row>
         <v-row>
         <v-col md="6">
             <v-select
-            :items="items"
+            :items="regions"
+            v-model="user.region"
             label="Région*"
             ></v-select>
         </v-col>
         <v-col md="6">
             <v-select
+            v-model="user.ville"
             :items="villes"
             label="Ville*"
             ></v-select>
@@ -82,14 +76,39 @@
         layout:'profil',
         data() {
             return {
-                firstname: 'Mourad',
-                lastname: 'Mostefa',
-                adress:'',
-                tel:"781872253",
-                tel1:'',
-                items: ['Alger', 'Chlef', 'Blida', 'Jijel'],
-                villes: ['Alger Centre', 'Ben Aknoun', 'Stawali', 'Herrache'],
+            user : {
+              nom: '',
+              prenom: '',
+              telephone_sup:'',
+              telephone:'',
+              adresse:'',
+              region:'',
+              ville:'',
+            }, 
+               modal:false,
+               villes: [],
+               regions : [],
+            }
+        },
+        computed: {
+          achet(){
+                return this.$store.getters['user/getUser'];
+          },
+          acheteur(){
+                if(this.achet !== null){
+                  this.user.nom = (this.achet.nom !== null) ? this.achet.nom : '';
+                  this.user.prenom = (this.achet.prenom !== null) ? this.achet.prenom : '';
+                  this.user.telephone_sup = (this.achet.telephone_sup !== null) ? this.achet.telephone_sup : '';
+                  this.user.telephone = (this.achet.telephone !== null) ? this.achet.telephone : '';
+                  this.user.adresse = (this.achet.adresse !== null) ? this.achet.adresse : '';
+                  this.user.region = (this.achet.region !== null) ? this.achet.region : '';
+                  this.user.ville = (this.achet.ville !== null) ? this.achet.ville : '';
+                  return this.user;
                 }
+                else{
+                  return {};  
+                }
+            },
         },
     }
 </script>

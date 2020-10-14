@@ -5,7 +5,8 @@ export const state = () => ({
   token : 'Bearer ',
   authenticated:true,
     userData:{},
-    adds : [], 
+    adds : [],
+    services : [], 
   })
 
 export const getters = {
@@ -26,6 +27,9 @@ export const getters = {
     },
     getBoutiques : state => {
       return state.userData.vendeurs;
+    },
+    getServices : state => {
+      return state.services;
     }
 }
 export const mutations = {
@@ -34,6 +38,9 @@ export const mutations = {
   },
   SET_USER :(state,data) => {
     state.user.userData = data;
+  },
+  SET_SERVICES :(state,data) => {
+    state.user.services = data;
   },
 }
 
@@ -56,6 +63,15 @@ export const actions = {
         )
         .then(function (response) {
           context.commit('SET_USER',response.data.data); 
+        })
+        .catch(function (error) {   
+    });     
+   }, 
+   getServices(context){
+    var self = this; 
+    axios.get(`http://127.0.0.1:8000/api/service`)
+        .then(function (response) {
+          context.commit('SET_SERVICES',response.data.data); 
         })
         .catch(function (error) {   
     });     
